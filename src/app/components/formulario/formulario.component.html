@@ -1,0 +1,16 @@
+<h2>Formulario</h2>
+<br>
+<form [formGroup]="formMultiple">
+    <div class="form-group row ">
+        <div class="col-md-8 " formArrayName="choices">
+            <div *ngFor="let choice of formMultiple.get('choices').controls; let i = index" [formGroupName]="i">
+                <!--<input class="form-control " placeholder="Correo electrónico " formControlName="verdad">-->
+                <input class="form-check-input" type="checkbox" name="verdad" formControlName="select">
+                <input class="form-control " placeholder="nombre" formControlName="name">
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary" (click)="insertSimpleChoice()">Agregar</button>
+    </div>
+</form>
+
+{{formMultiple.value | json}}
